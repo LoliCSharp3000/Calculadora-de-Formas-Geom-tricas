@@ -41,9 +41,14 @@ public class Main {
                     func = false;
                     break;
                 case 5:
-                    for (Figura f : figura) {
-                        System.out.println(f.getClass().getSimpleName() + " - Area: " + f.area() + "   Perimetro: " + f.perimetro());
+                    if(figura.isEmpty()) System.out.println("no hay figuras");
+                    else{
+                        for (Figura f : figura) {
+                            System.out.println(f.getClass().getSimpleName() + " - Area: " + f.area() + "   Perimetro: " + f.perimetro());
+                        }
                     }
+                    
+                    break;
                 default:
                     System.out.println("Incorrecto");
             }

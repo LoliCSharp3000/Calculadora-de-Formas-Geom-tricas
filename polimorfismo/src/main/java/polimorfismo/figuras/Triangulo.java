@@ -1,4 +1,4 @@
-package polimorfismo;
+package polimorfismo.figuras;
 
 public class Triangulo extends Figura{
     private double base;
@@ -17,9 +17,11 @@ public class Triangulo extends Figura{
     public double getBase(){
         return base;
     }
+    public void setA(double a) {
+        A = a;
+    }
     @Override
-    public double area(){
-        A = (base * altura) / 2;
+    public double getA() {
         return A;
     }
     @Override

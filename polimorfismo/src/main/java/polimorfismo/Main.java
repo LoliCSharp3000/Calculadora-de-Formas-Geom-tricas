@@ -2,13 +2,18 @@ package polimorfismo;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import polimorfismo.figuras.*;
+import polimorfismo.utilidades.*;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Figura> figura = new ArrayList<>();
+        ArrayList<Figura> figura = new ArrayList<>();   
         Scanner sc = new Scanner(System.in);
 
         int elec;
+        final int algo = 3;
+        double base;
+        double altura;
         boolean func = true;
 
         while(func){
@@ -18,23 +23,31 @@ public class Main {
                 case 1:
                     System.out.println("Pon el radio");
                     Circulo circulo = new Circulo();
-                    circulo.setRadio(sc.nextDouble());
+                    double radio = sc.nextDouble();
+                    circulo.setRadio(radio);
+                    circulo.setA(Calculadora.area(radio));
                     figura.add(circulo);
                     break;
                 case 2:
                     System.out.println("Pon la base");
+                    base = sc.nextDouble();
                     Rectangulo rectangulo = new Rectangulo();
-                    rectangulo.setBase(sc.nextDouble());
+                    rectangulo.setBase(base);
                     System.out.println("Pon altura");
-                    rectangulo.setAltura(sc.nextDouble());
+                    altura = sc.nextDouble();
+                    rectangulo.setAltura(altura);
+                    rectangulo.setA(Calculadora.area(base, altura));
                     figura.add(rectangulo);
                     break;
                 case 3:
                     System.out.println("Pon la base");
                     Triangulo triangulo = new Triangulo();
-                    triangulo.setBase(sc.nextDouble());
+                    base = sc.nextDouble();
+                    triangulo.setBase(base);
                     System.out.println("Pon altura");
-                    triangulo.setAltura(sc.nextDouble());
+                    altura = sc.nextDouble();
+                    triangulo.setAltura(altura);
+                    triangulo.setA(Calculadora.area(base, altura, func));
                     figura.add(triangulo);
                     break;
                 case 4:
@@ -44,14 +57,17 @@ public class Main {
                     if(figura.isEmpty()) System.out.println("no hay figuras");
                     else{
                         for (Figura f : figura) {
-                            System.out.println(f.getClass().getSimpleName() + " - Area: " + f.area() + "   Perimetro: " + f.perimetro());
+                            System.out.println(f.getClass().getSimpleName() + " - Area: " + f.getA() + "   Perimetro: " + f.perimetro());
                         }
                     }
                     
                     break;
                 default:
-                    System.out.println("Incorrecto");
+                    System.out.println("Incorrecto" + algo);
+                    break;
+
             }
         }
+        sc.close();
     }
 }

@@ -1,4 +1,4 @@
-package polimorfismo;
+package polimorfismo.figuras;
 
 public class Rectangulo extends Figura{
     private double base;
@@ -17,9 +17,11 @@ public class Rectangulo extends Figura{
     public double  getAltura(){
         return altura;
     }
+    public void setA(double a) {
+        A = a;
+    }
     @Override
-    public double area(){
-        A = base * altura;
+    public double getA() {
         return A;
     }
     @Override

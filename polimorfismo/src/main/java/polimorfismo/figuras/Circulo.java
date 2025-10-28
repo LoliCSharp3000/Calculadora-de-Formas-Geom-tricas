@@ -1,4 +1,4 @@
-package polimorfismo;
+package polimorfismo.figuras;
 
 public class Circulo extends Figura{
     private double radio;
@@ -11,9 +11,11 @@ public class Circulo extends Figura{
     public double getRadio() {
         return radio;
     }
+    public void setA(double a) {
+        A = a;
+    }
     @Override
-    public double area(){
-        A = Math.PI * Math.pow(radio, 2);
+    public double getA() {
         return A;
     }
     @Override
